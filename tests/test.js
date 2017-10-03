@@ -1,12 +1,8 @@
-const puppeteer = require('puppeteer');
-
-let browser;
 let page;
 
 describe('test google home page', () => {
 
     beforeAll(async() => {
-        browser = await puppeteer.launch();
         page = await browser.newPage();
         await page.goto('https://google.com');
     })
@@ -19,8 +15,4 @@ describe('test google home page', () => {
 
         expect(hrefs[0]).toBe('https://mail.google.com/mail/?tab=wm')
     })
-
-    afterAll(async() => {
-        await browser.close();
-    });
 })
